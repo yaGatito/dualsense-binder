@@ -1,0 +1,14 @@
+{
+    "device": "/dev/input/by-id/usb-Sony_Interactive_Entertainment_DualSense_Wireless_Controller-if03-event-joystick",
+    "log_file": "/var/log/ds-remote.log",
+    "bindings": [
+        {
+            "key": "BTN_MODE",
+            "script": "/homeato/scripts/ps.sh"
+        },
+        {
+            "key": "BTN_SOUTH",
+            "script": "/home/gato/scripts/x.sh"
+        }
+    ]
+}

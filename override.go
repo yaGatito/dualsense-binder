@@ -114,7 +114,7 @@ func buildBindings(cfg Config) map[uint16]string {
 }
 
 func runScript(path string) {
-	cmd := exec.Command("bash", path)
+	cmd := exec.Command("/bin/bash", path)
 	err := cmd.Run()
 	if err != nil {
 		log.Println("Script error:", err)

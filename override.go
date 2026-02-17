@@ -128,7 +128,7 @@ func setupLogging(logPath string) {
 
 	f, err := os.OpenFile(logPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		log.Fatal(err)
+		log.Printf("Warning: %e", err)
 	}
 
 	mw := io.MultiWriter(os.Stdout, f)

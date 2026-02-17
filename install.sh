@@ -1,9 +1,9 @@
 #!/bin/bash
-HOME_PATH="$1"
-CONFIG_PATH="$2"
+APP_PATH="/opt/ds-remote"
+CONFIG_PATH="$1"
 
-if [ -z "$HOME_PATH" ]; then
-  echo "Usage: install.sh /home/gato joystick.json"
+if [ -z "$CONFIG_PATH" ]; then
+  echo "Usage: install.sh joystick.json"
   exit 1
 fi
 
@@ -16,10 +16,10 @@ sudo apt install -y jq evtest curl
 echo "Creating install directory..."
 
 echo "Downloading main script..."
-sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$HOME_PATH/ds-remote.sh"
+sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$APP_PATH/ds-remote.sh"
 
-sudo chmod +x "$HOME_PATH/ds-remote.sh"
-sudo chown $(whoami):$(whoami) "$HOME_PATH/ds-remote.sh"
+sudo chmod +x "$APP_PATH/ds-remote.sh"
+# sudo chown $(whoami):$(whoami) "$APP_PATH/ds-remote.sh"
 
 echo "Creating systemd service..."
 sudo bash -c "cat > /etc/systemd/system/$SERVICE_NAME.service" <<EOF
@@ -28,9 +28,9 @@ Description=DualSense Bash Remote
 After=multi-user.target
 
 [Service]
-ExecStart=$HOME_PATH/ds-remote.sh $CONFIG_PATH
+ExecStart=sudo bash $APP_PATH/ds-remote.sh $CONFIG_PATH
 Restart=always
-User=$(whoami)
+User=$(root)
 
 [Install]
 WantedBy=multi-user.target

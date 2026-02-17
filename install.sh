@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e
-
 CONFIG_PATH="$1"
 
 if [ -z "$CONFIG_PATH" ]; then

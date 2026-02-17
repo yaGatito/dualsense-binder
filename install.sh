@@ -6,7 +6,7 @@ if [ -z "$CONFIG_PATH" ]; then
   exit 1
 fi
 
-INSTALL_DIR="/opt/ds-remote"
+INSTALL_DIR="~/ds-remote"
 SERVICE_NAME="ds-remote"
 
 echo "Installing dependencies..."

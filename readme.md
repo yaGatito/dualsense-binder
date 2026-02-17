@@ -1,5 +1,10 @@
+## Example usage .sh
+```shell
+    curl -fsSL https://github.com/USERNAME/ds-remote/releases/download/v0.0.1/install.sh | bash -s -- /home/gato/joystick.json
+```
+
 ## Build
-`go build -o ds-remote main.go`
+`go build -o ds-remote override.go`
 
 ## Launch 
 `./ds-remote config.json --daemon`

@@ -1,25 +1,24 @@
 #!/bin/bash
-CONFIG_PATH="$1"
+HOME_PATH="$1"
 
-if [ -z "$CONFIG_PATH" ]; then
-  echo "Usage: install.sh /path/to/config.json"
+if [ -z "$HOME_PATH" ]; then
+  echo "Usage: install.sh /home/gato/ds-remote"
   exit 1
 fi
 
-INSTALL_DIR="~/ds-remote"
-SERVICE_NAME="ds-remote"
+SERVICE_NAME="dualsense-override"
 
 echo "Installing dependencies..."
 sudo apt update -y
 sudo apt install -y jq evtest curl
 
 echo "Creating install directory..."
-sudo mkdir -p "$INSTALL_DIR"
+sudo mkdir -p "$HOME_PATH"
 
 echo "Downloading main script..."
-sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$INSTALL_DIR/ds-remote.sh"
+sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$HOME_PATH/ds-remote.sh"
 
-sudo chmod +x "$INSTALL_DIR/ds-remote.sh"
+sudo chmod +x "$HOME_PATH/ds-remote.sh"
 
 echo "Creating systemd service..."
 sudo bash -c "cat > /etc/systemd/system/$SERVICE_NAME.service" <<EOF
@@ -28,7 +27,7 @@ Description=DualSense Bash Remote
 After=multi-user.target
 
 [Service]
-ExecStart=$INSTALL_DIR/ds-remote.sh $CONFIG_PATH
+ExecStart=$HOME_PATH/ds-remote.sh $HOME_PATH/config.json
 Restart=always
 User=$(whoami)
 

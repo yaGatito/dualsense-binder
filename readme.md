@@ -1,6 +1,6 @@
 ## Example usage .sh
 ```shell
-    curl -fsSL https://github.com/USERNAME/ds-remote/releases/download/v0.0.1/install.sh | bash -s -- /home/gato/joystick.json
+    curl -fsSL https://github.com/yaGatito/dualsense-override/releases/download/v0.0.2/install.sh | bash -s -- /home/gato/joystick.json
 ```
 
 ## Build

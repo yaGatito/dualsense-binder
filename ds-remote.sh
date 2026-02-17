@@ -3,7 +3,7 @@
 CONFIG="$1"
 
 if [ -z "$CONFIG" ]; then
-  echo "Usage: $0 config.json"
+  echo "Usage: $0 joystick.json"
   exit 1
 fi
 

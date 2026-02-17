@@ -3,7 +3,7 @@ HOME_PATH="$1"
 CONFIG_PATH="$2"
 
 if [ -z "$HOME_PATH" ]; then
-  echo "Usage: install.sh /home/gato/ joystick.json"
+  echo "Usage: install.sh /home/gato joystick.json"
   exit 1
 fi
 
@@ -19,6 +19,7 @@ echo "Downloading main script..."
 sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$HOME_PATH/ds-remote.sh"
 
 sudo chmod +x "$HOME_PATH/ds-remote.sh"
+sudo chown $(whoami):$(whoami) "$HOME_PATH/ds-remote.sh"
 
 echo "Creating systemd service..."
 sudo bash -c "cat > /etc/systemd/system/$SERVICE_NAME.service" <<EOF

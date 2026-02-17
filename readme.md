@@ -3,8 +3,10 @@
     curl -fsSL https://github.com/yaGatito/dualsense-override/releases/download/v0.0.2/install.sh | bash -s -- /home/gato/joystick.json
 ```
 
-## Build
-`go build -o ds-remote override.go`
+
+
+## Build and run Go
+`go run override.go joystick.json`
 
 ## Launch 
 `./ds-remote config.json --daemon`

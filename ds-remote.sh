@@ -14,7 +14,7 @@ declare -A BINDINGS
 
 while IFS="=" read -r key script; do
   BINDINGS["$key"]="$script"
-done < <(jq -r '.bindings | to_entries[] | "\(.key)=\(.value)"' "$CONFIG")
+done < <(jq -r '.bindings[] | "\(.key)=\(.script)"' "$CONFIG")
 
 # key codes
 declare -A KEYMAP

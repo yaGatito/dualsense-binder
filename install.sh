@@ -30,7 +30,7 @@ After=multi-user.target
 [Service]
 ExecStart=sudo bash $APP_PATH/ds-remote.sh $CONFIG_PATH
 Restart=always
-User=$(root)
+User=$(whoami)
 
 [Install]
 WantedBy=multi-user.target

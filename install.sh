@@ -17,8 +17,7 @@ echo "Creating install directory..."
 sudo mkdir -p "$INSTALL_DIR"
 
 echo "Downloading main script..."
-sudo curl -fsSL https://github.com/yaGatito/dualsense-override/releases/download/v0.0.4/ds-remote.sh \
-  -o "$INSTALL_DIR/ds-remote.sh"
+sudo curl -fsSL https://https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$INSTALL_DIR/ds-remote.sh"
 
 sudo chmod +x "$INSTALL_DIR/ds-remote.sh"
 

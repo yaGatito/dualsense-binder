@@ -28,7 +28,7 @@ Description=DualSense Bash Remote
 After=multi-user.target
 
 [Service]
-ExecStart=sudo bash $APP_PATH/ds-remote.sh $CONFIG_PATH
+ExecStart=sudo ./$APP_PATH/ds-remote.sh $CONFIG_PATH
 Restart=always
 User=$(whoami)
 

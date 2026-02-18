@@ -1,11 +1,13 @@
-# Install using curl
-```shell
-    curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/install.sh | bash -s -- /home/gato/ds-remote/joystick.json
+# Install using curl and bash
+It will download default `joystick.json` and `ps.sh` override for Dualsense Gamepad (PS button) to Launch PPSSPP Emulator located in `/home/gato/Downloads/PPSSPP-v1.19.3-anylinux-aarch64.AppImage`
+<br>
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/install.sh | bash -s -- /home/gato/ds-remote/joystick.json
 ```
 
 # Json-config example
 ```json
-{
 {
     "device": "/dev/input/by-id/usb-Sony_Interactive_Entertainment_DualSense_Wireless_Controller-if03-event-joystick",
     "log_file": "/home/gato/ds-remote.log",
@@ -15,7 +17,6 @@
             "script": "/home/gato/ds-remote/ps.sh"
         }
     ]
-}
 }
 ```
 

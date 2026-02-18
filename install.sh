@@ -4,7 +4,8 @@ CONFIG_PATH="$1"
 
 if [ -z "$CONFIG_PATH" ]; then
   echo "Usage: install.sh /home/gato/joystick.json"
-  exit 1
+  echp "Trying to use default joystick.json config"
+  sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json -o "$APP_PATH/default.json"
 fi
 
 SERVICE_NAME="dualsense-override"
@@ -29,7 +30,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/bin/bash /opt/ds-remote/ds-remote.sh $CONFIG_PATH
+ExecStart=/bin/bash $APP_PATH/ds-remote.sh $CONFIG_PATH
 Restart=on-failure
 User=$(whoami)
 

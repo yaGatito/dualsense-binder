@@ -3,8 +3,9 @@
 CONFIG="$1"
 
 if [ -z "$CONFIG" ]; then
-  echo "Usage: $0 joystick.json"
-  exit 1
+  sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh -o "$APP_PATH/ps.sh"
+  sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json -o "$APP_PATH/default.json"
+  $CONFIG=$APP_PATH/default.json
 fi
 
 DEVICE=$(jq -r '.device' "$CONFIG")

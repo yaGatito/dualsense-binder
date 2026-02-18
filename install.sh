@@ -29,7 +29,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=sudo /bin/bash /$APP_PATH/ds-remote.sh $CONFIG_PATH
+ExecStart=/bin/bash /opt/ds-remote/ds-remote.sh $CONFIG_PATH
 Restart=on-failure
 User=$(whoami)
 

@@ -1,41 +1,43 @@
-## Example usage .sh
+# Install using curl
 ```shell
-    curl -fsSL https://github.com/yaGatito/dualsense-override/releases/download/v0.0.2/install.sh | bash -s -- /home/gato/joystick.json
+    curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/install.sh | bash -s -- /home/gato/ds-remote/joystick.json
 ```
 
-
-
-## Build and run Go
-`go run override.go joystick.json`
-
-## Launch 
-`./ds-remote config.json --daemon`
-
-## Json-config example
+# Json-config example
 ```json
 {
+{
     "device": "/dev/input/by-id/usb-Sony_Interactive_Entertainment_DualSense_Wireless_Controller-if03-event-joystick",
-    "log_file": "/var/log/ds-remote.log",
+    "log_file": "/home/gato/ds-remote.log",
     "bindings": [
         {
             "key": "BTN_MODE",
-            "script": "/home/gato/scripts/ps.sh"
-        },
-        {
-            "key": "BTN_SOUTH",
-            "script": "/home/gato/scripts/x.sh"
+            "script": "/home/gato/ds-remote/ps.sh"
         }
     ]
 }
+}
 ```
 
-## Script example
+# Script example
 ```bash
 #!/bin/bash
-echo "PS pressed at $(date)" >> /tmp/ps.log
+
+export DISPLAY=:0
+export XAUTHORITY=/home/gato/.Xauthority
+
+APP="/home/gato/Downloads/PPSSPP-v1.19.3-anylinux-aarch64.AppImage"
+
+if pgrep -f PPSSPP >/dev/null; then
+    echo "PPSSPP already running"
+    exit 0
+fi
+
+chmod +x "$APP"
+"$APP" &
 ```
 
-## Buttons to override
+# Buttons to override
 BTN_MODE   (PS)<br>
 BTN_SOUTH  (X)<br>
 BTN_EAST   (O)<br>

@@ -4,7 +4,7 @@
     "bindings": [
         {
             "key": "BTN_MODE",
-            "script": "/opt/ds-remote/ps.sh"
+            "script": "/home/gato/ps.sh"
         }
     ]
 }

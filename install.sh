@@ -25,10 +25,11 @@ echo "Creating systemd service..."
 sudo bash -c "cat > /etc/systemd/system/$SERVICE_NAME.service" <<EOF
 [Unit]
 Description=DualSense Bash Remote
-After=multi-user.target
+After=network.target
 
 [Service]
-ExecStart=sudo ./$APP_PATH/ds-remote.sh $CONFIG_PATH
+Type=simple
+ExecStart=/bin/bash /$APP_PATH/ds-remote.sh $CONFIG_PATH
 Restart=always
 User=$(whoami)
 

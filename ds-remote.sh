@@ -3,11 +3,8 @@
 CONFIG="$1"
 
 if [ -z "$CONFIG" ]; then
-  sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh -o "$APP_PATH/ps.sh"
-  sudo chmod +x "$APP_PATH/ps.sh"
-  sudo chown $(whoami):$(whoami) "$APP_PATH/ps.sh"
-  sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json -o "$APP_PATH/default.json"
-  $CONFIG=$APP_PATH/default.json
+  echo "Usage: ds-remote.sh /home/gato/joystick.json"
+  exit 1
 fi
 
 DEVICE=$(jq -r '.device' "$CONFIG")

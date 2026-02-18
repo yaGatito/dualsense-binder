@@ -4,11 +4,7 @@ CONFIG_PATH="$1"
 
 if [ -z "$CONFIG_PATH" ]; then
   echo "Usage: install.sh /home/gato/joystick.json"
-  echp "Trying to use default joystick.json config"
-  sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh -o "$APP_PATH/ps.sh"
-  sudo chmod +x "$APP_PATH/ps.sh"
-  sudo chown $(whoami):$(whoami) "$APP_PATH/ps.sh"
-  sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json -o "$APP_PATH/default.json"
+  exit 1
 fi
 
 SERVICE_NAME="dualsense-override"

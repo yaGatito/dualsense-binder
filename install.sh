@@ -14,6 +14,7 @@ if [ -z "$CONFIG_PATH" ]; then
   echo "Usage: install.sh gato /home/gato/ds-remote/joystick.json"
   echo "Downloading joystick.json to $APP_PATH"
   curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json | cat > /home/$USER_NAME/ds-remote/joystick.json 
+  CONFIG_PATH=/home/gato/ds-remote/joystick.json
   echo "Downloading ps.sh to $APP_PATH"
   curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh | cat > /home/$USER_NAME/ds-remote/ps.sh | chmod +x /home/$USER_NAME/ds-remote/ps.sh
 fi

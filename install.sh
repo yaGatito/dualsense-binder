@@ -1,15 +1,23 @@
 #!/bin/bash
-APP_PATH="/home/gato/ds-remote"
-CONFIG_PATH="$1"
+USER_NAME="$1"
+CONFIG_PATH="$2"
 
-if [ -z "$CONFIG_PATH" ]; then
-  echo "Usage: install.sh $APP_PATH/joystick.json"
+if [ -z "$USER_NAME" ]; then
+  echo "Usage: install.sh gato"
   exit 1
 fi
 
-mkdir ds-remote && 
-curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json | cat > /home/gato/ds-remote/joystick.json 
-curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh | cat > /home/gato/ds-remote/ps.sh | chmod +x /home/gato/ds-remote/ps.sh
+APP_PATH="/home/$USER_NAME/ds-remote"
+mkdir /home/$USER_NAME/ds-remote
+
+if [ -z "$CONFIG_PATH" ]; then
+  echo "Usage: install.sh gato /home/gato/ds-remote/joystick.json"
+  echo "Downloading joystick.json to $APP_PATH"
+  curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json | cat > /home/$USER_NAME/ds-remote/joystick.json 
+  echo "Downloading ps.sh to $APP_PATH"
+  curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh | cat > /home/$USER_NAME/ds-remote/ps.sh | chmod +x /home/$USER_NAME/ds-remote/ps.sh
+fi
+
 
 SERVICE_NAME="dualsense-override"
 

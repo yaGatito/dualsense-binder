@@ -3,7 +3,7 @@
 CONFIG="$1"
 
 if [ -z "$CONFIG" ]; then
-  echo "Usage: ds-remote.sh /home/gato/joystick.json"
+  echo "Usage: ds-remote.sh /home/gato/ds-remote/joystick.json"
   exit 1
 fi
 

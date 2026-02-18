@@ -1,9 +1,9 @@
 #!/bin/bash
-APP_PATH="/opt/ds-remote"
+APP_PATH="/home/gato/ds-remote"
 CONFIG_PATH="$1"
 
 if [ -z "$CONFIG_PATH" ]; then
-  echo "Usage: install.sh /home/gato/joystick.json"
+  echo "Usage: install.sh $APP_PATH/joystick.json"
   exit 1
 fi
 

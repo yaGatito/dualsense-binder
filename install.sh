@@ -22,7 +22,7 @@ echo "Creating install directory..."
 echo "Downloading main script..."
 sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$APP_PATH/ds-remote.sh"
 
-sudo chmod +x "$APP_PATH/ds-remote/ds-remote.sh"
+sudo chmod +x "$APP_PATH/ds-remote.sh"
 # sudo chown $(whoami):$(whoami) "$APP_PATH/ds-remote.sh"
 
 echo "Creating systemd service..."

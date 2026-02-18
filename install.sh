@@ -1,5 +1,6 @@
 #!/bin/bash
 APP_PATH="/home/gato/ds-remote"
+
 CONFIG_PATH="$1"
 
 if [ -z "$CONFIG_PATH" ]; then
@@ -10,6 +11,7 @@ fi
 mkdir ds-remote && 
 curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json | cat > /home/gato/ds-remote/joystick.json 
 curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh | cat > /home/gato/ds-remote/ps.sh | chmod +x /home/gato/ds-remote/ps.sh
+
 
 SERVICE_NAME="dualsense-override"
 

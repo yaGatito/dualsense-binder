@@ -9,11 +9,11 @@ if [ -z "$CONFIG_PATH" ]; then
 fi
 
 mkdir ds-remote && 
-curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/joystick.json | cat > /home/gato/ds-remote/joystick.json 
-curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ps.sh | cat > /home/gato/ds-remote/ps.sh | chmod +x /home/gato/ds-remote/ps.sh
+curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-binder/master/joystick.json | cat > /home/gato/ds-remote/joystick.json 
+curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-binder/master/ps.sh | cat > /home/gato/ds-remote/ps.sh | chmod +x /home/gato/ds-remote/ps.sh
 
 
-SERVICE_NAME="dualsense-override"
+SERVICE_NAME="dualsense-binder"
 
 echo "Installing dependencies..."
 sudo apt update -y
@@ -22,7 +22,7 @@ sudo apt install -y jq evtest curl
 echo "Creating install directory..."
 
 echo "Downloading main script..."
-sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/ds-remote.sh -o "$APP_PATH/ds-remote.sh"
+sudo curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-binder/master/ds-remote.sh -o "$APP_PATH/ds-remote.sh"
 
 sudo chmod +x "$APP_PATH/ds-remote.sh"
 # sudo chown $(whoami):$(whoami) "$APP_PATH/ds-remote.sh"

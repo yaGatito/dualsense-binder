@@ -3,7 +3,7 @@ It will download default `joystick.json` and `ps.sh` override for Dualsense Game
 <br>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-override/master/install.sh | bash -s -- /home/gato/ds-remote/joystick.json
+curl -fsSL https://raw.githubusercontent.com/yaGatito/dualsense-binder/master/install.sh | bash -s -- /home/gato/ds-remote/joystick.json
 ```
 
 # Json-config example
